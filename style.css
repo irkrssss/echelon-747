@@ -1,0 +1,81 @@
+/* Общие настройки страницы */
+body {
+    background-color: #fdfaf6; /* Теплый цвет старой бумаги */
+    color: #2c2c2c; /* Угольно-черный для текста */
+    font-family: 'Georgia', serif; /* Классический шрифт с засечками */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок сайта */
+header {
+    background-color: #1a1a1a; /* Глубокий черный фон */
+    color: #fdfaf6;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 5px solid #8b0000; /* Темно-красная линия (акцент) */
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+header p {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Контейнеры для контента */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    color: #8b0000;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 10px;
+    font-variant: small-caps;
+}
+
+/* Стили для таблицы */
+#passengersTable {
+    background: white;
+    border: 1px solid #dcdcdc;
+    font-size: 0.95em;
+}
+
+/* Стилизация поиска и кнопок таблицы */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #fff;
+    font-family: 'Georgia', serif;
+}
+
+/* Настройка адаптивности для видео/карт */
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* Соотношение сторон 16:9 */
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
