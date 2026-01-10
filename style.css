@@ -2,7 +2,17 @@
 body {
     background-color: #fdfaf6; /* Теплый цвет старой бумаги */
     color: #2c2c2c; /* Угольно-черный для текста */
-    font-family: 'Georgia', serif; /* Классический шрифт с засечками */
+    font-family: body {
+    background-color: #fdfaf6;
+    color: #2c2c2c;
+    font-family: 'Inter', sans-serif; /* Основной текст */
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif; /* Заголовки */
+}
     line-height: 1.6;
     margin: 0;
     padding: 0;
