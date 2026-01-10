@@ -10,11 +10,16 @@ body {
 
 /* Заголовок сайта */
 header {
-    background-color: #1a1a1a; /* Глубокий черный фон */
-    color: #fdfaf6;
-    padding: 80px 20px;
+    /* Ссылка на картинку и затемнение поверх нее (0.7 - это 70% черноты) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('https://images.unsplash.com/photo-1550537687-c91070c4b74d?q=80&w=1000&auto=format&fit=crop');
+    background-size: cover;   /* Картинка растягивается на всю ширину */
+    background-position: center; /* Центрируем картинку */
+    color: #fdfaf6; /* Цвет текста остается светлым */
+    padding: 120px 20px; /* Сделаем шапку чуть выше, чтобы было больше "воздуха" */
     text-align: center;
-    border-bottom: 5px solid #8b0000; /* Темно-красная линия (акцент) */
+    border-bottom: 5px solid #8b0000;
+}
 }
 
 h1 {
