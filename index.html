@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эшелон 747 | Цифровая реконструкция</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+</head>
+<body>
+
+    <header>
+        <h1>Эшелон №747</h1>
+        <p>Цифровая реконструкция депортации 2400 немцев Поволжья (сентябрь 1941)</p>
+    </header>
+
+    <div class="container">
+        <section id="intro">
+            <h2>О проекте</h2>
+            <p>Этот проект объединяет архивные списки и личные дневники, чтобы восстановить путь и судьбы депортированных семей.</p>
+        </section>
+
+        <section id="map">
+            <h2>Карта маршрута</h2>
+            <div class="iframe-container">
+                <iframe src="ССЫЛКА_ИЗ_STORYMAP_JS" width="100%" height="500px" frameborder="0"></iframe>
+            </div>
+        </section>
+
+        <section id="database">
+            <h2>Реестр пассажиров</h2>
+            <p>Используйте поиск для нахождения родственников по фамилии или названию села.</p>
+            <table id="passengersTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Год рождения</th>
+                        <th>Место исхода (село)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#passengersTable').DataTable({
+                ajax: {
+                    url: 'data.json', // Твой файл с данными
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Surname' }, // Убедись, что в Excel/JSON заголовки такие же
+                    { data: 'Name' },
+                    { data: 'BirthYear' },
+                    { data: 'Village' }
+                ],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
