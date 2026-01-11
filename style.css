@@ -210,3 +210,36 @@ footer h3 {
 .lang-switch a:hover {
     opacity: 1;
 }
+/* Стилизация таблицы DataTable */
+#passengersTable_wrapper {
+    margin-top: 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+#passengersTable thead th {
+    background-color: #374520; /* Твой оливковый */
+    color: #fdfaf6;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    padding: 15px;
+    border: none;
+}
+
+#passengersTable tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Красивая подсветка строки при наведении */
+#passengersTable tbody tr:hover {
+    background-color: #fcfaf2 !important;
+}
+
+/* Стилизация поиска */
+.dataTables_filter input {
+    border: 1px solid #374520 !important;
+    border-radius: 20px !important;
+    padding: 8px 15px !important;
+    outline: none;
+}
