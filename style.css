@@ -163,7 +163,26 @@ h2 {
     outline: none;
     margin-bottom: 15px;
 }
+/* Улучшенная стилизация строк таблицы */
+#passengersTable tbody tr {
+    cursor: pointer; /* МЕНЯЕМ КУРСОР: теперь при наведении появится "рука" */
+    transition: all 0.2s ease; /* Плавность эффектов */
+}
 
+/* Эффект при наведении на строку */
+#passengersTable tbody tr:hover {
+    /* 1. Делаем фон чуть более заметным (песочным) */
+    background-color: #f2ede0 !important; 
+    
+    /* 2. Добавляем тонкую оливковую полоску слева. 
+       Это выглядит очень стильно и сразу выделяет строку. */
+    box-shadow: inset 4px 0 0 #374520; 
+}
+
+/* Опционально: эффект при нажатии (клик) */
+#passengersTable tbody tr:active {
+    background-color: #e9e2cf !important;
+}
 /* 6. Блок скачивания данных (ТОТ САМЫЙ БЛОК) */
 .download-container {
     margin-top: 25px;
