@@ -172,6 +172,10 @@
                 <hr>
                 <div class="info-row"><strong>Семья:</strong> <span id="modalFamily"></span></div>
                 <div class="info-row"><strong>Примечание:</strong> <span id="modalNote"></span></div>
+                <div class="card-footer">
+    <button id="shareBtn" class="btn-share">🔗 Поделиться карточкой</button>
+    <span id="shareStatus" style="display:none; font-size:0.8em; color:#374520; margin-left:10px;">Ссылка скопирована!</span>
+</div>
             </div>
         </div>
     </div>
@@ -180,35 +184,73 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function() {
-            var table = $('#passengersTable').DataTable({
-                ajax: { url: 'data.json', dataSrc: '' },
-                columns: [
-                    { data: 'Фамилия' },
-                    { data: 'Имя' },
-                    { data: 'Год рождения' },
-                    { data: 'Место рожд\\. город, село' },
-                    { data: 'Варианты фамилии', defaultContent: "" }
-                ],
-                language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' }
-            });
+    var table = $('#passengersTable').DataTable({
+        ajax: { url: 'data.json', dataSrc: '' },
+        columns: [
+            { data: 'Фамилия' },
+            { data: 'Имя' },
+            { data: 'Год рождения' },
+            { data: 'Место рожд\\. город, село' },
+            { data: 'Варианты фамилии', defaultContent: "" }
+        ],
+        language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' },
+        // Ждем загрузки данных, чтобы проверить URL
+        initComplete: function() {
+            checkUrlHash(this.api());
+        }
+    });
 
-            $('#passengersTable tbody').on('click', 'tr', function () {
-                var data = table.row(this).data();
-                $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
-                $('#modalBirth').text(data['Год рождения'] || '—');
-                $('#modalOrigin').text(data['Место рожд\\. город, село'] || '—');
-                $('#modalJob').text(data['Профессия'] || "Нет данных");
-                $('#modalWork').text(data['Место работы'] || "Нет данных");
-                $('#modalFamily').text(data['Семья'] || "Нет данных");
-                $('#modalNote').text(data['Примечание'] || "—");
-                $('#personModal').fadeIn(300);
-            });
+    // Функция открытия карточки
+    function openCard(data) {
+        $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
+        $('#modalBirth').text(data['Год рождения'] || '—');
+        $('#modalOrigin').text(data['Место рожд\\. город, село'] || '—');
+        $('#modalJob').text(data['Профессия'] || "Нет данных");
+        $('#modalWork').text(data['Место работы'] || "Нет данных");
+        $('#modalFamily').text(data['Семья'] || "Нет данных");
+        $('#modalNote').text(data['Примечание'] || "—");
+        
+        // Сохраняем ID в кнопку поделиться
+        $('#shareBtn').attr('data-id', data['id']); 
+        $('#personModal').fadeIn(300);
+    }
 
-            $('.close-modal, .modal').on('click', function(e) {
-                if (e.target !== this) return;
-                $('#personModal').fadeOut(300);
-            });
+    // Клик по строке
+    $('#passengersTable tbody').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        openCard(data);
+    });
+
+    // Логика кнопки "Поделиться"
+    $('#shareBtn').on('click', function() {
+        var personId = $(this).attr('data-id');
+        var shareUrl = window.location.origin + window.location.pathname + '#id=' + personId;
+        
+        // Копируем в буфер обмена
+        navigator.clipboard.writeText(shareUrl).then(function() {
+            $('#shareStatus').fadeIn().delay(2000).fadeOut();
         });
+    });
+
+    // Проверка URL при загрузке: если есть #id=123, открываем карточку
+    function checkUrlHash(api) {
+        var hash = window.location.hash;
+        if (hash && hash.includes('#id=')) {
+            var id = hash.replace('#id=', '');
+            var rowData = api.data().toArray().find(row => row.id == id);
+            if (rowData) {
+                openCard(rowData);
+            }
+        }
+    }
+    
+    // Закрытие
+    $('.close-modal, .modal').on('click', function(e) {
+        if (e.target !== this) return;
+        $('#personModal').fadeOut(300);
+        window.location.hash = ''; // Чистим хэш при закрытии
+    });
+});
     </script>
 </body>
 </html>
