@@ -126,23 +126,44 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#passengersTable').DataTable({
-                ajax: {
-                    url: 'data.json',
-                    dataSrc: ''
-                },
-                columns: [
-                    { data: 'Фамилия' },
-                    { data: 'Имя' },
-                    { data: 'Год рождения' },
-                    { data: 'Место рожд\\. город, село' } 
-                ],
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json'
-                }
-            });
-        });
+       $(document).ready(function() {
+    var table = $('#passengersTable').DataTable({
+        ajax: { url: 'data.json', dataSrc: '' },
+        columns: [
+            { data: 'Фамилия' },
+            { data: 'Имя' },
+            { data: 'Год рождения' },
+            { data: 'Место рожд\\. город, село' },
+            { data: 'Варианты фамилии', defaultContent: "" }
+        ],
+        language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' }
+    });
+
+    // ОБРАБОТКА КЛИКА ПО СТРОКЕ
+    $('#passengersTable tbody').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        
+        // Заполняем карточку данными
+        $('#modalName').text(data['Фамилия'] + ' ' + data['Имя']);
+        $('#modalBirth').text(data['Год рождения']);
+        $('#modalOrigin').text(data['Место рожд\\. город, село']);
+        
+        // Дополнительные поля (проверь, чтобы они были в JSON)
+        $('#modalJob').text(data['Профессия'] || "Нет данных");
+        $('#modalWork').text(data['Место работы'] || "Нет данных");
+        $('#modalFamily').text(data['Семья'] || "Нет данных");
+        $('#modalNote').text(data['Примечание'] || "—");
+
+        // Показываем окно
+        $('#personModal').fadeIn(300);
+    });
+
+    // ЗАКРЫТИЕ ОКНА
+    $('.close-modal, .modal').on('click', function(e) {
+        if (e.target !== this) return; // Чтобы не закрывалось при клике на саму карточку
+        $('#personModal').fadeOut(300);
+    });
+});
     </script>
     <div id="personModal" class="modal">
     <div class="modal-content archive-card">
