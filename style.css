@@ -484,3 +484,27 @@ html {
         letter-spacing: 0;
     }
 }
+.card-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(55, 69, 32, 0.2);
+    text-align: center;
+}
+
+.btn-share {
+    background: transparent;
+    border: 1px solid #374520;
+    color: #374520;
+    padding: 8px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-share:hover {
+    background: #374520;
+    color: #fdfaf6;
+}
