@@ -1,15 +1,8 @@
-/* Общие настройки страницы */
+/* 1. Общие настройки страницы */
 body {
-    /* Базовый цвет (на всякий случай) */
     background-color: #f8f5f0; 
-    
-    /* Ссылка на текстуру бумаги (Вариант А) */
     background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
-    
-    /* Заставляем текстуру повторяться по вертикали и горизонтали */
     background-repeat: repeat;
-    
-    /* Остальные настройки шрифтов */
     color: #2c2c2c;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -18,54 +11,45 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'Lora', serif; /* Заголовки */
-}
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+    font-family: 'Lora', serif;
 }
 
-/* Заголовок сайта */
+/* 2. Заголовок сайта (Шапка) */
 header {
-    /* 1. Затемнение (0.6 — это 60% темноты) + ссылка на фото */
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                       url('https://github.com/irkrssss/echelon-747/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-01-11%20%D0%B2%2015.43.18.png?raw=true'); 
-    
-    /* 2. Настройки фона */
-    background-size: cover;       /* Растянуть на всю ширину */
-    background-position: center;  /* Центрировать изображение */
-    background-attachment: fixed; /* Эффект параллакса (картинка замирает при скролле) */
-    
-    /* 3. Отступы и текст */
-    padding: 160px 20px;          /* Высота шапки */
-    color: #fdfaf6;               /* Светлый текст */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 160px 20px;
+    color: #fdfaf6;
     text-align: center;
-    border-bottom: 5px solid #374520;
+    border-bottom: 5px solid #374520; /* Твой новый оливковый цвет */
 }
 
 header h1 {
     font-size: 4em;
-    letter-spacing: 5px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Тень для букв, чтобы они "отрывались" от фона */
-}
-
-h1 {
-    font-size: 3em;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 header p {
     font-style: italic;
-    opacity: 0.8;
+    opacity: 0.9;
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
-/* Контейнеры для контента */
+/* 3. Контейнеры для контента */
 .container {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 20px;
+    padding: 40px;
+    background-color: #ffffff; /* Белые блоки на бумажном фоне */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 }
 
 section {
@@ -77,28 +61,30 @@ h2 {
     border-bottom: 1px solid #dcdcdc;
     padding-bottom: 10px;
     font-variant: small-caps;
+    font-size: 1.8em;
 }
 
-/* Стили для таблицы */
+/* 4. Стили для таблицы */
 #passengersTable {
     background: white;
     border: 1px solid #dcdcdc;
     font-size: 0.95em;
+    width: 100% !important;
 }
 
-/* Стилизация поиска и кнопок таблицы */
 .dataTables_wrapper .dataTables_filter input {
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 8px;
+    border-radius: 4px;
     background-color: #fff;
-    font-family: 'Georgia', serif;
+    margin-bottom: 10px;
 }
 
-/* Настройка адаптивности для видео/карт */
+/* 5. Настройка карты */
 .iframe-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%; /* Соотношение сторон 16:9 */
+    padding-top: 56.25%; /* 16:9 */
     background: #eee;
     border: 1px solid #ccc;
 }
@@ -111,4 +97,3 @@ h2 {
     height: 100%;
     border: 0;
 }
-
