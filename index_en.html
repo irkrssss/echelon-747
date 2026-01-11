@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echelon 747 | Digital Reconstruction</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <link rel="preload" as="image" href="https://github.com/irkrssss/echelon-747/blob/main/header.jpg?raw=true">
     
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <link rel="stylesheet" href="style.css?v=3.3">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
 </head>
 <body>
@@ -23,17 +24,29 @@
         <p>Digital reconstruction of the deportation of 2,403 Volga Germans (September 1941)</p>
     </header>
 
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="#intro">History</a></li>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#database">Registry</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <section id="intro">
             <h2>About the Project</h2>
             <p>
-                This project is based on the digitization of the archival passenger lists for Echelon №747. Until now, the data for these 2,403 passengers was not available in digital format and existed only as physical paper records.
+                This research is based on the digitization of archival passenger lists for Echelon №747. Until now, data for the 2,403 passengers of this train was unavailable in digital format and existed only as physical paper records in archives.
             </p>
             <p>
-                We have converted these records into a digital registry and reconstructed the journey's timeline: the train departed from Saratov on <b>September 7, 1941</b>, and arrived at <b>Oyash</b> station (Novosibirsk region) ten days later, on <b>September 17</b>.
+                We have converted this data into a digital registry, processed it, and reconstructed the journey's timeline: on <b>September 7, 1941</b>, the echelon departed from Saratov and arrived at its destination—<b>Oyash</b> station (Novosibirsk region)—twelve days later, on <b>September 19</b>.
             </p>
             <p>
-                The route and dates were cross-referenced with the personal diaries of one of the passengers, <b>Lyudmila Alexandrovna Gross</b>. The project was created to make this information accessible for researchers and families tracing their history.
+                The route and dates were cross-verified using the personal diaries of two passengers, <b>Lyudmila Alexandrovna Gross</b> and <b>D. Bergman</b>. The project aims to make this data accessible to historians and families searching for their relatives.
             </p>
         </section>
 
@@ -63,14 +76,14 @@
 
         <section id="database">
             <h2>Passenger Registry of Echelon №747</h2>
-            <p>Use the search bar to find relatives by last name or place of origin. For searches in German, please switch to the German version of the site.</p>
+            <p>Use the search bar to find relatives. Click on a row to open the full archival card. For German language searches, please use the German version of the site.</p>
             <table id="passengersTable" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Last Name</th>
                         <th>First Name</th>
                         <th>Birth Year</th>
-                        <th>Place of Origin</th>
+                        <th>Place of Birth</th>
                         <th>Surname Variants</th>
                     </tr>
                 </thead>
@@ -89,17 +102,18 @@
             <div class="method-grid">
                 <div class="method-item">
                     <h3>Sources</h3>
-                    <p>The primary source consists of archival records for Echelon №747. We cross-referenced these records with personal testimonies from Lyudmila Alexandrovna Gross’s diaries to verify dates and geographical milestones.</p>
+                    <p>The primary sources are the archival lists of Echelon №747 held at the State Archive of the Novosibirsk Region (GANO) and personal diaries of the participants: L. A. Gross and D. Bergman. The data has been verified and cross-referenced with geographical gazetteers of the Volga German ASSR.</p>
                 </div>
                 <div class="method-item">
-                    <h3>Data Processing Steps</h3>
+                    <h3>Processing Stages</h3>
                     <ul>
-                        <li><b>Transcription & Digitization:</b> Converting archival records into a structured Excel/JSON format.</li>
+                        <li><b>Transcription & Digitization:</b> Converting primary archival records into a structured Excel format.</li>
                         <li><b>Normalization:</b> Standardizing names to resolve inconsistencies in the original documents.</li>
-                        <li><b>Toponymic Correction:</b> Identifying and correcting historical place names.</li>
-                        <li><b>Cleaning & Validation:</b> Removing duplicates and verifying birth years.</li>
-                        <li><b>Technical Transformation:</b> Exporting data to JSON for instant search functionality.</li>
-                        <li><b>Public Contribution:</b> The digitized registry has been shared with the international "Memorial" project to supplement the database of political repression victims.</li>
+                        <li><b>Toponymic Correction:</b> Identifying and correcting historical names of settlements.</li>
+                        <li><b>Cleaning & Validation:</b> Removing duplicates, verifying birth years, and final structuring.</li>
+                        <li><b>Translation:</b> Translating the data into German and English.</li>
+                        <li><b>Technical Transformation:</b> Exporting to JSON for instant searching across 2,403 records.</li>
+                        <li><b>Public Contribution:</b> The registry has been shared with the international "Memorial" project to supplement the database of political repression victims.</li>
                     </ul>
                 </div>
             </div>
@@ -111,12 +125,12 @@
             <div class="author-info">
                 <h3>About the Authors</h3>
                 <p><b>Archive Rats</b> — an independent research project in the field of Digital Heritage.</p>
-                <p>The "Echelon №747" project is part of an ongoing effort to preserve digital memory.</p>
+                <p>The "Echelon №747" project is part of a broader effort to preserve digital memory.</p>
                 <p>📍 Belgrade, Serbia</p>
             </div>
             <div class="contact-links">
-                <h3>Contact</h3>
-                <p>If you have information from family archives to contribute or have any questions, please reach out to us:</p>
+                <h3>Get in Touch</h3>
+                <p>If you wish to contribute information from family archives or have any questions, please contact us:</p>
                 <a href="mailto:irkrssss@gmail.com" class="contact-button">Send an Email</a>
             </div>
         </div>
@@ -125,25 +139,61 @@
         </div>
     </footer>
 
+    <div id="personModal" class="modal">
+        <div class="modal-content archive-card">
+            <span class="close-modal">&times;</span>
+            <div class="card-header">
+                <small>Archival Card №747</small>
+                <h2 id="modalName">Surname First Name</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><strong>Birth Year:</strong> <span id="modalBirth"></span></div>
+                <div class="info-row"><strong>Place of Birth:</strong> <span id="modalOrigin"></span></div>
+                <hr>
+                <div class="info-row"><strong>Occupation:</strong> <span id="modalJob"></span></div>
+                <div class="info-row"><strong>Place of Work:</strong> <span id="modalWork"></span></div>
+                <hr>
+                <div class="info-row"><strong>Family:</strong> <span id="modalFamily"></span></div>
+                <div class="info-row"><strong>Note:</strong> <span id="modalNote"></span></div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function() {
-            $('#passengersTable').DataTable({
-                ajax: {
-                    url: 'data.json',
-                    dataSrc: ''
-                },
+            var table = $('#passengersTable').DataTable({
+                ajax: { url: 'data.json', dataSrc: '' },
                 columns: [
                     { data: 'Фамилия' },
                     { data: 'Имя' },
                     { data: 'Год рождения' },
                     { data: 'Место рожд\\. город, село' },
-                    { data: 'Варианты фамилии' }
+                    { data: 'Варианты фамилии', defaultContent: "" }
                 ],
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/en-gb.json'
-                }
+                // Set language to English
+                language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/en-gb.json' }
+            });
+
+            $('#passengersTable tbody').on('click', 'tr', function () {
+                var data = table.row(this).data();
+                $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
+                $('#modalBirth').text(data['Год рождения'] || '—');
+                $('#modalOrigin').text(data['Место рожд\\. город, село'] || '—');
+                
+                // English placeholders for empty data fields
+                $('#modalJob').text(data['Профессия'] || "No data available");
+                $('#modalWork').text(data['Место работы'] || "No data available");
+                $('#modalFamily').text(data['Семья'] || "No data available");
+                $('#modalNote').text(data['Примечание'] || "—");
+                
+                $('#personModal').fadeIn(300);
+            });
+
+            $('.close-modal, .modal').on('click', function(e) {
+                if (e.target !== this) return;
+                $('#personModal').fadeOut(300);
             });
         });
     </script>
