@@ -429,3 +429,58 @@ footer {
         text-align: left;
     }
 }
+/* 11. Навигационное меню */
+.main-nav {
+    background-color: #374520; /* Наш оливковый */
+    position: sticky;
+    top: 0;
+    z-index: 900; /* Меню должно быть ниже модального окна, но выше контента */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav li {
+    margin: 0;
+}
+
+.main-nav a {
+    display: block;
+    padding: 15px 25px;
+    color: #fdfaf6;
+    text-decoration: none;
+    font-family: 'Lora', serif; /* Используем наш заголовочный шрифт */
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #4a5d2b; /* Чуть светлее при наведении */
+}
+
+/* Фикс для отступа: чтобы при клике заголовок не прятался под меню */
+html {
+    scroll-padding-top: 60px; /* Высота меню */
+}
+
+/* Адаптивность меню для мобильных */
+@media (max-width: 768px) {
+    .main-nav a {
+        padding: 12px 10px;
+        font-size: 0.75em;
+        letter-spacing: 0;
+    }
+}
