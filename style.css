@@ -20,23 +20,26 @@ h1, h2, h3 {
 
 /* Заголовок сайта */
 header {
-    background-image: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.8)), 
-                      url('https://images.unsplash.com/photo-1621193793262-4127d9855c83?q=80&w=1000&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #fdfaf6;
-    padding: 140px 20px;
+    /* 1. Затемнение (0.6 — это 60% темноты) + ссылка на фото */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1600&auto=format&fit=crop'); 
+    
+    /* 2. Настройки фона */
+    background-size: cover;       /* Растянуть на всю ширину */
+    background-position: center;  /* Центрировать изображение */
+    background-attachment: fixed; /* Эффект параллакса (картинка замирает при скролле) */
+    
+    /* 3. Отступы и текст */
+    padding: 160px 20px;          /* Высота шапки */
+    color: #fdfaf6;               /* Светлый текст */
     text-align: center;
     border-bottom: 5px solid #8b0000;
 }
 
 header h1 {
     font-size: 4em;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 8px; /* Сильно увеличим расстояние между буквами для "дизайнерского" вида */
-    font-weight: 300; /* Сделаем заголовок более тонким и изящным */
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Тень для букв, чтобы они "отрывались" от фона */
 }
 
 h1 {
