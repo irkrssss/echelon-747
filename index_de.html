@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echelon 747 | Digitale Rekonstruktion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="preload" as="image" href="https://github.com/irkrssss/echelon-747/blob/main/header.jpg?raw=true">
+    
+    <link rel="stylesheet" href="style.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+</head>
+<body>
+
+    <header>
+        <div class="lang-switch">
+            <a href="index.html">RU</a> | <a href="index_en.html">EN</a> | <b>DE</b>
+        </div>
+        <h1>Echelon №747</h1>
+        <p>Digitale Rekonstruktion der Deportation von 2403 Wolgadeutschen (September 1941)</p>
+    </header>
+
+    <div class="container">
+        <section id="intro">
+            <h2>Über das Projekt</h2>
+            <p>
+                Grundlage dieser Untersuchung ist die Digitalisierung der archivalischen Passagierlisten des Echelons №747. Bisher waren die Daten der 2403 Passagiere dieses Zuges nicht in digitaler Form verfügbar und existierten nur als physische Papierdokumente in den Archiven.
+            </p>
+            <p>
+                Wir haben diese Aufzeichnungen in ein digitales Register übertragen und die Chronologie der Reise rekonstruiert: Der Zug verließ Saratow am <b>7. September 1941</b> und kam am <b>17. September</b> am Zielort — dem Bahnhof <b>Ojasch</b> (Region Nowosibirsk) — an.
+            </p>
+            <p>
+                Die Route und die Daten wurden mit den persönlichen Tagebüchern einer der Passagierinnen, <b>Lyudmila Alexandrowna Gross</b>, abgeglichen. Das Projekt wurde ins Leben gerufen, um diese Daten für Forscher und Familien bei der Ahnenforschung zugänglich zu machen.
+            </p>
+        </section>
+
+        <section id="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">2403</span>
+                    <span class="stat-desc">Personen auf der Liste</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-desc">Tage unterwegs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3000+</span>
+                    <span class="stat-desc">Kilometer Wegstrecke</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="map">
+            <h2>Routenkarte</h2>
+            <div class="iframe-container">
+                <iframe src="https://uploads.knightlab.com/storymapjs/e56d7ac301fd73b92df1fcd07520b4a1/echelon-747/index.html" width="100%" height="500px" frameborder="0"></iframe>
+            </div>
+        </section>
+
+        <section id="database">
+            <h2>Passagierregister des Echelons №747</h2>
+            <p>Nutzen Sie die Suchleiste, um Verwandte nach Nachnamen oder Herkunftsort zu finden.</p>
+            <table id="passengersTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nachname</th>
+                        <th>Vorname</th>
+                        <th>Geburtsjahr</th>
+                        <th>Geburtsort</th>
+                        <th>Namensvarianten</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="download-container">
+                <span>Offene Daten für die Forschung:</span>
+                <div class="download-buttons">
+                    <a href="data.json" download class="btn-download">Download JSON</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodik und Quellen</h2>
+            <div class="method-grid">
+                <div class="method-item">
+                    <h3>Quellen</h3>
+                    <p>Hauptdatenquelle sind die Archivlisten des Echelons №747. Wir haben diese Einträge mit persönlichen Zeugnissen aus den Tagebüchern von Lyudmila Alexandrowna Gross verglichen, um Daten und geografische Meilensteine zu verifizieren.</p>
+                </div>
+                <div class="method-item">
+                    <h3>Datenverarbeitung</h3>
+                    <ul>
+                        <li><b>Transkription:</b> Übertragung handschriftlicher Archivlisten in ein strukturiertes digitales Format.</li>
+                        <li><b>Normalisierung:</b> Vereinheitlichung der Schreibweise von Namen zur Behebung von Inkonsistenzen in den Originaldokumenten.</li>
+                        <li><b>Toponymische Korrektur:</b> Identifizierung und Korrektur historischer Ortsnamen.</li>
+                        <li><b>Validierung:</b> Bereinigung von Duplikaten und Verifizierung der Geburtsjahre.</li>
+                        <li><b>Technischer Export:</b> Umwandlung in JSON für eine sofortige Suchfunktion.</li>
+                        <li><b>Öffentlicher Beitrag:</b> Das Register wurde dem internationalen Projekt „Memorial“ zur Ergänzung der Datenbank der Opfer politischer Repression übergeben.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="author-info">
+                <h3>Über die Autoren</h3>
+                <p><b>Archivratten</b> — ein unabhängiges Forschungsprojekt im Bereich Digital Heritage.</p>
+                <p>Das Projekt „Echelon №747“ ist Teil der Arbeit zur Bewahrung des digitalen Gedächtnisses.</p>
+                <p>📍 Belgrad, Serbien</p>
+            </div>
+            <div class="contact-links">
+                <h3>Kontakt</h3>
+                <p>Wenn Sie das Projekt mit Informationen aus Familienarchiven ergänzen möchten, schreiben Sie uns bitte:</p>
+                <a href="mailto:irkrssss@gmail.com" class="contact-button">E-Mail schreiben</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Projekt „Echelon №747“ | Alle Rechte vorbehalten</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#passengersTable').DataTable({
+                ajax: {
+                    url: 'data.json',
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Фамилия' },
+                    { data: 'Имя' },
+                    { data: 'Год рождения' },
+                    { data: 'Место рожд\\. город, село' },
+                    { data: 'Варианты фамилии' }
+                ],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/de-de.json'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
