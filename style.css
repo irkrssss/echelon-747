@@ -243,3 +243,51 @@ footer h3 {
     padding: 8px 15px !important;
     outline: none;
 }
+/* Блок статистики */
+#stats {
+    margin: 40px 0;
+    padding: 30px 0;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 3.5em; /* Крупные цифры */
+    color: #374520;   /* Твой фирменный оливковый */
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 768px) {
+    .stats-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .stat-number {
+        font-size: 2.8em;
+    }
+}
