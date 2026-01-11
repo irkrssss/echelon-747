@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Эшелон 747 | Цифровая реконструкция</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.5">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" type="text/css" href="[https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css](https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css)">
 </head>
 <body>
 
@@ -18,22 +18,22 @@
     </header>
 
     <div class="container">
-       <section id="intro">
-    <h2>История эшелона №747</h2>
-    <p>
-        Проект посвящен реконструкции пути эшелона №747, ставшего частью трагической истории депортации немцев Поволжья в 1941 году. 
-        После издания указа о выселении, <b>7 сентября 1941 года</b>, состав с 2403 пассажирами вышел из Саратова. 
-        Спустя двенадцать дней пути через всю страну, <b>19 сентября</b>, эшелон прибыл в пункт назначения — на станцию <b>Ояш</b> (Новосибирская область).
-    </p>
-    <p>
-        География маршрута и хроника событий восстановлены на основе личных дневников <b>Людмилы Александровны Гросс</b>. 
-    </p>
-</section>
+        <section id="intro">
+            <h2>История эшелона №747</h2>
+            <p>
+                Проект посвящен реконструкции пути эшелона №747, ставшего частью трагической истории депортации немцев Поволжья в 1941 году. 
+                После издания указа о выселении, <b>7 сентября 1941 года</b>, состав с 2403 пассажирами вышел из Саратова. 
+                Спустя двенадцать дней пути через всю страну, <b>19 сентября</b>, эшелон прибыл в пункт назначения — на станцию <b>Ояш</b> (Новосибирская область).
+            </p>
+            <p>
+                География маршрута и хроника событий восстановлены на основе личных дневников <b>Людмилы Александровны Гросс</b>. 
+            </p>
+        </section>
 
         <section id="map">
             <h2>Карта маршрута</h2>
             <div class="iframe-container">
-                <iframe src="https://uploads.knightlab.com/storymapjs/e56d7ac301fd73b92df1fcd07520b4a1/echelon-747/index.html" width="100%" height="500px" frameborder="0"></iframe>
+                <iframe src="[https://uploads.knightlab.com/storymapjs/e56d7ac301fd73b92df1fcd07520b4a1/echelon-747/index.html](https://uploads.knightlab.com/storymapjs/e56d7ac301fd73b92df1fcd07520b4a1/echelon-747/index.html)" width="100%" height="500px" frameborder="0"></iframe>
             </div>
         </section>
 
@@ -49,34 +49,9 @@
                         <th>Место рождения</th>
                     </tr>
                 </thead>
-                <tbody>
-                    </tbody>
+                <tbody></tbody>
             </table>
         </section>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#passengersTable').DataTable({
-                ajax: {
-                    url: 'data.json', // Твой файл с данными
-                    dataSrc: ''
-                },
-                columns: [
-                { data: 'Фамилия' },    // Было 'Surname'
-                { data: 'Имя' },        // Было 'Name'
-                { data: 'Год рождения' }, // Было 'BirthYear'
-                { data: 'Место рожд\\. город, село' }  // Было 'Village'
-                ],
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json'
-                }
-            });
-        });
-    </script>
-    </section>
 
         <section id="methodology">
             <h2>Методология и источники</h2>
@@ -95,25 +70,45 @@
                 </div>
             </div>
         </section>
+    </div> <footer id="contact">
+        <div class="container footer-content">
+            <div class="author-info">
+                <h3>Об авторе</h3>
+                <p><b>Ирина</b> — независимый исследователь в области Digital Heritage.</p>
+                <p>Проект «Эшелон №747» является частью работы по сохранению цифровой памяти и изучению истории депортации немцев Поволжья.</p>
+                <p>📍 Белград, Сербия</p>
+            </div>
+            <div class="contact-links">
+                <h3>Связаться</h3>
+                <p>Если вы нашли своих родственников в списке или хотите дополнить проект информацией из семейных архивов, пожалуйста, напишите мне:</p>
+                <a href="mailto:irkrssss@gmail.com" class="contact-button">Написать письмо</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Проект «Эшелон №747» | Все права защищены</p>
+        </div>
+    </footer>
 
-    </div> ```
-    <footer id="contact">
-    <div class="container footer-content">
-        <div class="author-info">
-            <h3>Об авторе</h3>
-            <p><b>Ирина</b> — независимый исследователь в области Digital Heritage.</p>
-            <p>Проект «Эшелон №747» является частью работы по сохранению цифровой памяти и изучению истории депортации немцев Поволжья.</p>
-            <p>📍 Белград, Сербия</p>
-        </div>
-        <div class="contact-links">
-            <h3>Связаться</h3>
-            <p>Если вы нашли своих родственников в списке или хотите дополнить проект информацией из семейных архивов, пожалуйста, напишите мне:</p>
-            <a href="mailto:irkrssss@gmail.com" class="contact-button">Написать письмо</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Проект «Эшелон №747» | Все права защищены</p>
-    </div>
-</footer>
+    <script src="[https://code.jquery.com/jquery-3.6.0.min.js](https://code.jquery.com/jquery-3.6.0.min.js)"></script>
+    <script src="[https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js](https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js)"></script>
+    <script>
+        $(document).ready(function() {
+            $('#passengersTable').DataTable({
+                ajax: {
+                    url: 'data.json',
+                    dataSrc: ''
+                },
+                columns: [
+                    { data: 'Фамилия' },
+                    { data: 'Имя' },
+                    { data: 'Год рождения' },
+                    { data: 'Место рожд\\. город, село' } 
+                ],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json'
+                }
+            });
+        });
+    </script>
 </body>
 </html>
