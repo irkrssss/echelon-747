@@ -282,3 +282,59 @@ footer {
         text-align: center;
     }
 }
+/* Стили для модального окна */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Темный фон сзади */
+    backdrop-filter: blur(5px); /* Легкое размытие */
+}
+
+.archive-card {
+    background-color: #fdfaf6;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid #dcdcdc;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    position: relative;
+}
+
+.card-header {
+    border-bottom: 2px solid #374520;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    margin: 5px 0;
+    border: none;
+    color: #374520;
+}
+
+.info-row {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.info-row strong {
+    color: #374520;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px; top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-modal:hover { color: #374520; }
