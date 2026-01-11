@@ -190,3 +190,23 @@ footer h3 {
         flex-direction: column;
     }
 }
+/* Переключатель языков в шапке */
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+    color: #fdfaf6;
+    letter-spacing: 1px;
+}
+
+.lang-switch a {
+    color: #fdfaf6;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.lang-switch a:hover {
+    opacity: 1;
+}
