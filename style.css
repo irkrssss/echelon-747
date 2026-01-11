@@ -282,59 +282,131 @@ footer {
         text-align: center;
     }
 }
-/* Стили для модального окна */
+/* =========================================
+   Стили для модального окна (Архивная карточка)
+   ========================================= */
+
+/* Затемненный фон за карточкой */
 .modal {
     display: none; 
     position: fixed;
     z-index: 1000;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Темный фон сзади */
-    backdrop-filter: blur(5px); /* Легкое размытие */
+    background-color: rgba(30, 33, 25, 0.85); /* Чуть более темный и "оливковый" фон */
+    backdrop-filter: blur(3px); /* Легкое размытие заднего плана */
 }
 
+/* Сама карточка */
 .archive-card {
-    background-color: #fdfaf6;
+    /* 1. Основа "старой бумаги" */
+    background-color: #f4e8d1; /* Более желтый/сепневый оттенок, чем основной сайт */
     background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+    /* Добавляем второй слой текстуры (легкий шум) для реализма */
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/natural-paper.png'),
+        linear-gradient(to bottom right, rgba(55, 69, 32, 0.05), rgba(0,0,0,0.1));
+
+    /* 2. Эффект старых краев и глубины */
+    border: 1px solid #c7b299; /* Коричневатая рамка вместо серой */
+    border-radius: 3px; /* Углы лишь слегка скруглены, как у реального картона */
+    /* Комбинация теней:
+       - Первая тень (inset): внутренняя, создает эффект затемненных/грязных краев бумаги.
+       - Вторая тень: внешняя, глубокая, заставляет карточку "парить" над фоном.
+    */
+    box-shadow: 
+        inset 0 0 50px rgba(55, 69, 32, 0.15), /* Эффект старых краев */
+        0 20px 40px rgba(0,0,0,0.4); /* Глубокая внешняя тень */
+
+    /* Позиционирование */
     margin: 5% auto;
     padding: 40px;
-    border: 1px solid #dcdcdc;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border-radius: 2px;
+    max-width: 550px; /* Чуть шире для солидности */
     position: relative;
 }
 
+/* Шапка карточки */
 .card-header {
     border-bottom: 2px solid #374520;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.card-header small {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75em;
 }
 
 .card-header h2 {
-    margin: 5px 0;
+    margin: 10px 0 0 0;
     border: none;
     color: #374520;
+    font-size: 2.2em;
+    line-height: 1.1;
 }
 
+/* Содержимое карточки */
 .info-row {
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    margin-bottom: 18px;
+    font-size: 1.15em;
+    display: flex; /* Выравниваем метку и значение */
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted rgba(55, 69, 32, 0.2); /* Линия как в бланке */
+    padding-bottom: 5px;
 }
 
 .info-row strong {
     color: #374520;
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: 0.75em;
     letter-spacing: 1px;
+    flex-basis: 40%; /* Метка занимает 40% ширины */
+    opacity: 0.8;
 }
 
+.info-row span {
+    flex-basis: 60%;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Разделительная линия внутри карточки */
+.archive-card hr {
+    border: none;
+    border-top: 2px dashed #374520; /* Пунктирная линия, как перфорация */
+    opacity: 0.2;
+    margin: 25px 0;
+}
+
+/* Кнопка закрытия (крестик) */
 .close-modal {
     position: absolute;
-    right: 20px; top: 10px;
-    font-size: 30px;
+    right: 25px; top: 15px;
+    font-size: 32px;
     cursor: pointer;
-    color: #999;
+    color: #8a7f70; /* Цвет старой бронзы */
+    transition: color 0.3s;
 }
 
 .close-modal:hover { color: #374520; }
+
+/* Адаптивность карточки для телефонов */
+@media (max-width: 768px) {
+    .archive-card {
+        padding: 25px;
+        margin: 15% auto; /* Чуть ниже на мобилках */
+    }
+    .info-row {
+        flex-direction: column; /* На телефоне метка над значением */
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .info-row span {
+        text-align: left;
+    }
+}
