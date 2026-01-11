@@ -7,45 +7,54 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    
+    <link rel="preload" as="image" href="https://github.com/irkrssss/echelon-747/blob/main/header.jpg?raw=true">
+    
+    <link rel="stylesheet" href="style.css?v=3.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
 </head>
 <body>
 
     <header>
-        <div class="lang-switch"><a href="index.html">RU</a> | <b>EN</b></div>
+        <div class="lang-switch">
+            <a href="index.html">RU</a> | <b>EN</b> | <a href="index_de.html">DE</a>
+        </div>
         <h1>Echelon №747</h1>
         <p>Digital reconstruction of the deportation of 2,403 Volga Germans (September 1941)</p>
     </header>
 
     <div class="container">
         <section id="intro">
-            <h2>The Story of Echelon №747</h2>
+            <h2>About the Project</h2>
             <p>
-                This project focuses on the reconstruction of the journey of Echelon №747, a significant part of the tragic deportation of Volga Germans in 1941. 
-                Following the deportation decree, on <b>September 7, 1941</b>, the train departed from Saratov with 2,403 passengers. 
-                After twelve days of travel across the country, on <b>September 19</b>, the echelon arrived at its destination — <b>Oyash</b> station (Novosibirsk region).
+                This project is based on the digitization of the archival passenger lists for Echelon №747. Until now, the data for these 2,403 passengers was not available in digital format and existed only as physical paper records.
             </p>
             <p>
-                The geography of the route and the chronicle of events were reconstructed based on the personal diaries of <b>Lyudmila Alexandrovna Gross</b>.
+                We have converted these records into a digital registry and reconstructed the journey's timeline: the train departed from Saratov on <b>September 7, 1941</b>, and arrived at <b>Oyash</b> station (Novosibirsk region) ten days later, on <b>September 17</b>.
+            </p>
+            <p>
+                The route and dates were cross-referenced with the personal diaries of one of the passengers, <b>Lyudmila Alexandrovna Gross</b>. The project was created to make this information accessible for researchers and families tracing their history.
             </p>
         </section>
-<section id="stats">
-    <div class="stats-grid">
-        <div class="stat-item">
-            <span class="stat-number">2403</span>
-            <span class="stat-desc">passengers listed</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">12</span>
-            <span class="stat-desc">days in transit</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">3000+</span>
-            <span class="stat-desc">kilometers traveled</span>
-        </div>
-    </div>
-</section>        <section id="map">
+
+        <section id="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">2403</span>
+                    <span class="stat-desc">passengers listed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-desc">days in transit</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3000+</span>
+                    <span class="stat-desc">kilometers traveled</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="map">
             <h2>Route Map</h2>
             <div class="iframe-container">
                 <iframe src="https://uploads.knightlab.com/storymapjs/e56d7ac301fd73b92df1fcd07520b4a1/echelon-747/index.html" width="100%" height="500px" frameborder="0"></iframe>
@@ -54,24 +63,25 @@
 
         <section id="database">
             <h2>Passenger Registry of Echelon №747</h2>
-            <p>Use the search bar to find relatives by last name or place of origin.</p>
+            <p>Use the search bar to find relatives by last name or place of origin. For searches in German, please switch to the German version of the site.</p>
             <table id="passengersTable" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Last Name</th>
                         <th>First Name</th>
-                        <th>Year of Birth</th>
+                        <th>Birth Year</th>
                         <th>Place of Origin</th>
+                        <th>Surname Variants</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
             <div class="download-container">
-    <span>Open Data for Research::</span>
-    <div class="download-buttons">
-        <a href="data.json" download class="btn-download">Download JSON</a>
-        </div>
-</div>
+                <span>Open Data for Research:</span>
+                <div class="download-buttons">
+                    <a href="data.json" download class="btn-download">Download JSON</a>
+                </div>
+            </div>
         </section>
 
         <section id="methodology">
@@ -79,17 +89,17 @@
             <div class="method-grid">
                 <div class="method-item">
                     <h3>Sources</h3>
-                    <p>The primary data source consists of archival records for Echelon №747. We cross-referenced these records with personal testimonies from Lyudmila Alexandrovna Gross’s diaries to verify dates and geographical milestones.</p>
+                    <p>The primary source consists of archival records for Echelon №747. We cross-referenced these records with personal testimonies from Lyudmila Alexandrovna Gross’s diaries to verify dates and geographical milestones.</p>
                 </div>
                 <div class="method-item">
                     <h3>Data Processing Steps</h3>
                     <ul>
-                        <li><b>Transcription & Digitization:</b> Converting archival handwritten and typewritten records into a structured Excel format.</li>
-                        <li><b>Unification & Normalization:</b> Standardizing names and surnames to resolve inconsistencies found in the original documents.</li>
-                        <li><b>Toponymic Correction:</b> Identifying and correcting historical place names and mapping them to modern locations.</li>
-                        <li><b>Cross-Verification:</b> Aligning the registry data with L. A. Gross’s diaries to clarify the journey's timeline.</li>
-                        <li><b>Cleaning & Validation:</b> Removing duplicates, verifying birth years, and finalizing the working data structure.</li>
-                        <li><b>Technical Transformation:</b> Exporting the cleaned data to JSON format for instant search functionality among 2,403 records.</li>
+                        <li><b>Transcription & Digitization:</b> Converting archival records into a structured Excel/JSON format.</li>
+                        <li><b>Normalization:</b> Standardizing names to resolve inconsistencies in the original documents.</li>
+                        <li><b>Toponymic Correction:</b> Identifying and correcting historical place names.</li>
+                        <li><b>Cleaning & Validation:</b> Removing duplicates and verifying birth years.</li>
+                        <li><b>Technical Transformation:</b> Exporting data to JSON for instant search functionality.</li>
+                        <li><b>Public Contribution:</b> The digitized registry has been shared with the international "Memorial" project to supplement the database of political repression victims.</li>
                     </ul>
                 </div>
             </div>
@@ -99,14 +109,14 @@
     <footer id="contact">
         <div class="container footer-content">
             <div class="author-info">
-                <h3>About the Author</h3>
-                <p><b>Irina</b> — independent researcher in the field of Digital Heritage.</p>
-                <p>The "Echelon №747" project is part of an ongoing effort to preserve digital memory and study the history of the Volga German deportation.</p>
+                <h3>About the Authors</h3>
+                <p><b>Archive Rats</b> — an independent research project in the field of Digital Heritage.</p>
+                <p>The "Echelon №747" project is part of an ongoing effort to preserve digital memory.</p>
                 <p>📍 Belgrade, Serbia</p>
             </div>
             <div class="contact-links">
                 <h3>Contact</h3>
-                <p>If you have information from family archives to contribute, please feel free to reach out:</p>
+                <p>If you have information from family archives to contribute or have any questions, please reach out to us:</p>
                 <a href="mailto:irkrssss@gmail.com" class="contact-button">Send an Email</a>
             </div>
         </div>
@@ -128,7 +138,8 @@
                     { data: 'Фамилия' },
                     { data: 'Имя' },
                     { data: 'Год рождения' },
-                    { data: 'Место рожд\\. город, село' } 
+                    { data: 'Место рожд\\. город, село' },
+                    { data: 'Варианты фамилии' }
                 ],
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/en-gb.json'
