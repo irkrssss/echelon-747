@@ -221,40 +221,61 @@ $(window).on('hashchange', function() {
     });
 
     // Функция открытия карточки
-   function openCard(data) {
-    // Подставляем номер в язычок
-    $('#modalTabId').text('№ ' + (data['id'] || '000')); 
-    
-    // ФИО
-    $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
-    
-    // Новое поле: Варианты фамилии
-    $('#modalVariants').text(data['Варианты фамилии'] || '—');
-    
-    // Остальные поля
-    $('#modalBirth').text(data['Год рождения'] || '—');
-    $('#modalOrigin').text(data['Место рожд. город, село'] || '—');
-    $('#modalJob').text(data['Профессия'] || "Нет данных");
-    $('#modalWork').text(data['Место работы'] || "Нет данных");
-    
-    // ВАЖНО: для Семьи используем .html(), так как там теперь ссылки!
-    $('#modalFamily').html(data['Семья'] || "Нет данных"); 
-    
-    // Примечание (сюда теперь попадает Совхоз)
-    $('#modalNote').text(data['Примечание'] || "—");
-    
-    // ID для кнопки поделиться
-    $('#shareBtn').attr('data-id', data['id']); 
-    $('#personModal').fadeIn(300);
-}
+   $(document).ready(function() {
+    // 1. Инициализация таблицы
+    var table = $('#passengersTable').DataTable({
+        ajax: { url: 'data.json', dataSrc: '' },
+        columns: [
+            { data: 'Фамилия' },
+            { data: 'Имя' },
+            { data: 'Год рождения' },
+            { data: 'Место рожд. город, село' },
+            { data: 'Варианты фамилии', defaultContent: "" }
+        ],
+        language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' },
+        initComplete: function() {
+            checkUrlHash(this.api());
+        }
+    });
+
+    // 2. Функция открытия карточки (теперь она видит все новые поля)
+    function openCard(data) {
+        if (!data) return;
         
-        // Копируем в буфер обмена
+        $('#modalTabId').text('№ ' + (data['id'] || '000')); 
+        $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
+        $('#modalVariants').text(data['Варианты фамилии'] || '—');
+        $('#modalBirth').text(data['Год рождения'] || '—');
+        $('#modalOrigin').text(data['Место рожд. город, село'] || '—');
+        $('#modalJob').text(data['Профессия'] || "Нет данных");
+        $('#modalWork').text(data['Место работы'] || "Нет данных");
+        
+        // ВАЖНО: используем .html() для Семьи, так как там ссылки
+        $('#modalFamily').html(data['Семья'] || "Нет данных"); 
+        $('#modalNote').text(data['Примечание'] || "—");
+        
+        $('#shareBtn').attr('data-id', data['id']); 
+        $('#personModal').fadeIn(300);
+        window.location.hash = 'id=' + data['id']; // Обновляем адрес при открытии
+    }
+
+    // 3. Клик по строке таблицы
+    $('#passengersTable tbody').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        openCard(data);
+    });
+
+    // 4. Логика кнопки "Поделиться"
+    $('#shareBtn').on('click', function() {
+        var personId = $(this).attr('data-id');
+        var shareUrl = window.location.origin + window.location.pathname + '#id=' + personId;
+        
         navigator.clipboard.writeText(shareUrl).then(function() {
             $('#shareStatus').fadeIn().delay(2000).fadeOut();
         });
     });
 
-    // Проверка URL при загрузке: если есть #id=123, открываем карточку
+    // 5. Проверка URL (Deep-linking)
     function checkUrlHash(api) {
         var hash = window.location.hash;
         if (hash && hash.includes('#id=')) {
@@ -265,12 +286,17 @@ $(window).on('hashchange', function() {
             }
         }
     }
+
+    // 6. Следим за изменением хэша (для ссылок на родственников)
+    $(window).on('hashchange', function() {
+        checkUrlHash(table);
+    });
     
-    // Закрытие
+    // 7. Закрытие модального окна
     $('.close-modal, .modal').on('click', function(e) {
         if (e.target !== this) return;
         $('#personModal').fadeOut(300);
-        window.location.hash = ''; // Чистим хэш при закрытии
+        history.pushState("", document.title, window.location.pathname + window.location.search); // Чистим хэш без прыжка страницы
     });
 });
     </script>
