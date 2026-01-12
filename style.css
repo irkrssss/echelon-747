@@ -263,10 +263,13 @@ footer {
 }
 
 .btn-support {
-    flex: 1; /* Кнопки будут одинаковой ширины */
+    flex: 1;
     max-width: 300px;
     display: inline-block;
     padding: 15px 20px;
+    background-color: #374520; /* Оливковая заливка для обеих */
+    color: #fdfaf6;
+    border: 1px solid #374520;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
