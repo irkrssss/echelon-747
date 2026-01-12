@@ -457,3 +457,45 @@ footer {
     cursor: pointer;         /* И только тут появляется "палец" курсора */
     text-decoration: none;   /* Оставляем без линий, чтобы не "шуметь" */
 }
+/* --- СТИЛИ ДЛЯ СОХРАНЕНИЯ В PDF --- */
+@media print {
+    /* Скрываем всё, кроме модального окна */
+    header, nav, section, footer, .download-container, .lang-switch, .close-modal, .card-footer-clean {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .modal {
+        position: relative !important;
+        display: block !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+
+    .archive-card-horizontal {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border: 1px solid #eee !important;
+        box-shadow: none !important; /* Убираем тень при печати */
+        background-color: #fdfaf6 !important;
+        -webkit-print-color-adjust: exact; /* Чтобы сохранился цвет бумаги */
+    }
+
+    .card-tab {
+        border: 1px solid #c2b49a !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* Делаем две колонки даже в PDF */
+    .card-body-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 30px !important;
+    }
+}
