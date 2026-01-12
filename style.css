@@ -443,3 +443,17 @@ footer {
     background: rgba(55, 69, 32, 0.05); /* Легкая подсветка при наведении */
     border-radius: 2px;
 }
+/* Ссылка-невидимка в названии */
+.hidden-brand-link {
+    color: inherit;          /* Берет цвет окружающего текста */
+    text-decoration: none;   /* Убираем подчеркивание */
+    font-weight: inherit;    /* Не выделяем жирностью специально */
+    cursor: default;         /* Сначала выглядит как обычный текст */
+    transition: color 0.3s ease;
+}
+
+.hidden-brand-link:hover {
+    color: #4a5d2b;          /* Очень мягкий оливковый только при наведении */
+    cursor: pointer;         /* И только тут появляется "палец" курсора */
+    text-decoration: none;   /* Оставляем без линий, чтобы не "шуметь" */
+}
