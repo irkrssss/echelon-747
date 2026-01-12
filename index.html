@@ -197,9 +197,9 @@
         </div>
 
         <div class="card-footer-clean">
-            <button id="shareBtn" class="btn-share">🔗 Поделиться</button>
-            <span id="shareStatus" style="display:none;">Ссылка скопирована!</span>
-        </div>
+    <button id="shareBtn" class="btn-share">🔗 Поделиться</button>
+    <button id="printBtn" class="btn-share">📄 Сохранить PDF</button> <span id="shareStatus" style="display:none;">Ссылка скопирована!</span>
+</div>
     </div>
 </div>
 
@@ -274,7 +274,9 @@ var table = $('#passengersTable').DataTable({
                 $('#shareStatus').fadeIn().delay(2000).fadeOut();
             });
         });
-
+$('#printBtn').on('click', function() {
+    window.print();
+});
         // Deep-linking
         function checkUrlHash(api) {
             var hash = window.location.hash;
