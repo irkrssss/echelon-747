@@ -205,20 +205,21 @@
     <script>
     $(document).ready(function() {
         // Инициализация таблицы
-        var table = $('#passengersTable').DataTable({
-            ajax: { url: 'data.json', dataSrc: '' },
-            columns: [
-                { data: 'Фамилия' },
-                { data: 'Имя' },
-                { data: 'Год рождения' },
-                { data: 'Место рожд. город, село' },
-                { data: 'Варианты фамилии', defaultContent: "—" }
-            ],
-            language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' },
-            initComplete: function() {
-                checkUrlHash(this.api());
-            }
-        });
+      // Найди этот блок в своем index.html и замени его:
+var table = $('#passengersTable').DataTable({
+    ajax: { url: 'data.json', dataSrc: '' },
+    columns: [
+        { data: 'Фамилия' },
+        { data: 'Имя' }, // Здесь теперь будет Имя + Отчество
+        { data: 'Год_рождения' }, // Добавили подчеркивание
+        { data: 'Место_рождения_полное' }, // Поменяли на полное место рождения
+        { data: 'Варианты_фамилии', defaultContent: "—" } // Добавили подчеркивание
+    ],
+    language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/ru.json' },
+    initComplete: function() {
+        checkUrlHash(this.api());
+    }
+});
 
         // Функция открытия карточки
        function openCard(data) {
