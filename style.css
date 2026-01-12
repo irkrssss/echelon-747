@@ -240,9 +240,9 @@ footer {
     opacity: 0.7;
     width: 100%;
 }
-/* 11. Блок поддержки (Buy Me a Coffee) */
+/* 11. Блок поддержки (Две кнопки) */
 .support-block {
-    background-color: #fcfaf2; /* Очень светлый бежевый, чтобы выделить секцию */
+    background-color: #fcfaf2;
     border-top: 1px solid #dcdcdc;
     border-bottom: 1px solid #dcdcdc;
     padding: 60px 0;
@@ -250,48 +250,62 @@ footer {
 }
 
 .support-container {
-    background: transparent !important; /* Убираем белый фон контейнера для этой секции */
+    background: transparent !important;
     box-shadow: none !important;
+    max-width: 800px;
 }
 
-.support-block h3 {
-    color: #374520;
-    font-size: 2em;
-    margin-bottom: 20px;
+.support-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.support-block p {
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-    font-size: 1.05em;
-    color: #555;
-    line-height: 1.7;
-}
-
-.btn-bmc {
+.btn-support {
+    flex: 1; /* Кнопки будут одинаковой ширины */
+    max-width: 300px;
     display: inline-block;
-    padding: 15px 30px;
-    background-color: #374520;
-    color: #fdfaf6;
+    padding: 15px 20px;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 0.85em;
     border-radius: 4px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(55, 69, 32, 0.2);
 }
 
-.btn-bmc:hover {
+/* Кнопка Buy Me a Coffee */
+.btn-bmc {
+    background-color: #374520;
+    color: #fdfaf6;
+    border: 1px solid #374520;
+}
+
+/* Кнопка Boosty (сделаем её чуть светлее или с рамкой для отличия) */
+.btn-boosty {
+    background-color: transparent;
+    color: #374520;
+    border: 1px solid #374520;
+}
+
+.btn-support:hover {
     background-color: #4a5d2b;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(55, 69, 32, 0.3);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(55, 69, 32, 0.2);
 }
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
-    .support-block { padding: 40px 20px; }
-    .support-block h3 { font-size: 1.6em; }
+    .support-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-support {
+        width: 100%;
+        max-width: 100%;
+    }
 }
