@@ -148,31 +148,58 @@
         </div>
     </footer>
 
-    <div id="personModal" class="modal">
-        <div class="modal-content archive-card">
-            <div class="card-tab"><span id="modalTabId">№ 000</span></div>
-            <span class="close-modal">&times;</span>
-            <div class="card-header">
-                <small>Архивная карточка №747</small>
-                <h2 id="modalName">Фамилия Имя</h2>
+  <div id="personModal" class="modal">
+    <div class="modal-content archive-card">
+        <div class="card-tab"><span id="modalTabId">№ 000</span></div>
+        <span class="close-modal">&times;</span>
+        
+        <div class="card-header">
+            <small>Личное дело пассажира эшелона №747</small>
+            <h2 id="modalFullName">Фамилия Имя Отчество</h2>
+            <div id="modalVariantsWrap" style="font-size: 0.9em; opacity: 0.8;">
+                Варианты: <span id="modalVariants"></span>
             </div>
-            <div class="card-body">
-                <div class="info-row"><strong>Варианты фамилии:</strong> <span id="modalVariants"></span></div>
+        </div>
+
+        <div class="card-body">
+            <div class="card-section">
                 <div class="info-row"><strong>Год рождения:</strong> <span id="modalBirth"></span></div>
+                <div class="info-row"><strong>Пол:</strong> <span id="modalGender"></span></div>
+                <div class="info-row"><strong>Национальность:</strong> <span id="modalNation"></span></div>
                 <div class="info-row"><strong>Место рождения:</strong> <span id="modalOrigin"></span></div>
-                <hr>
-                <div class="info-row"><strong>Профессия:</strong> <span id="modalJob"></span></div>
-                <div class="info-row"><strong>Место работы:</strong> <span id="modalWork"></span></div>
-                <hr>
-                <div class="info-row"><strong>Семья:</strong> <span id="modalFamily"></span></div>
-                <div class="info-row"><strong>Примечание:</strong> <span id="modalNote"></span></div>
-                <div class="card-footer">
-                    <button id="shareBtn" class="btn-share">🔗 Поделиться карточкой</button>
-                    <span id="shareStatus" style="display:none; font-size:0.8em; color:#374520; margin-left:10px;">Ссылка скопирована!</span>
-                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="card-section">
+                <h4>Сведения о работе до депортации</h4>
+                <div class="info-row"><strong>Специальность:</strong> <span id="modalSpecialty"></span></div>
+                <div class="info-row"><strong>Где работал (география):</strong> <span id="modalWorkGeo"></span></div>
+                <div class="info-row"><strong>Предприятие/Учёба:</strong> <span id="modalWorkPlace"></span></div>
+                <div class="info-row"><strong>Должность:</strong> <span id="modalJob"></span></div>
+            </div>
+
+            <hr>
+
+            <div class="card-section">
+                <h4>Размещение в Сибири</h4>
+                <div class="info-row"><strong>Место назначения:</strong> <span id="modalDestination"></span></div>
+            </div>
+
+            <hr>
+
+            <div class="card-section">
+                <div class="info-row"><strong>Семья (в эшелоне):</strong> <span id="modalFamily"></span></div>
+                <div class="info-row"><strong>Отношение к главе семьи:</strong> <span id="modalRelation"></span></div>
+            </div>
+
+            <div class="card-footer">
+                <button id="shareBtn" class="btn-share">🔗 Поделиться карточкой</button>
+                <span id="shareStatus" style="display:none;">Ссылка скопирована!</span>
             </div>
         </div>
     </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
@@ -196,24 +223,37 @@
         });
 
         // Функция открытия карточки
-        function openCard(data) {
-            if (!data) return;
-            $('#modalTabId').text('№ ' + (data['id'] || '000')); 
-            $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
-            $('#modalVariants').text(data['Варианты фамилии'] || '—');
-            $('#modalBirth').text(data['Год рождения'] || '—');
-            $('#modalOrigin').text(data['Место рожд. город, село'] || '—');
-            $('#modalJob').text(data['Профессия'] || "Нет данных");
-            $('#modalWork').text(data['Место работы'] || "Нет данных");
-            
-            // Используем .html() для ссылок на семью
-            $('#modalFamily').html(data['Семья'] || "Нет данных"); 
-            $('#modalNote').text(data['Примечание'] || "—");
-            
-            $('#shareBtn').attr('data-id', data['id']); 
-            $('#personModal').fadeIn(300);
-            window.location.hash = 'id=' + data['id'];
-        }
+       function openCard(data) {
+    if (!data) return;
+
+    // Заголовок и язычок
+    $('#modalTabId').text('№ ' + (data['id'] || '—')); 
+    $('#modalFullName').text(data['ФИО'] || '—');
+    $('#modalVariants').text(data['Варианты_фамилии'] || '—');
+
+    // Личные данные
+    $('#modalBirth').text(data['Год_рождения'] || '—');
+    $('#modalGender').text(data['Пол'] || '—');
+    $('#modalNation').text(data['Национальность'] || '—');
+    $('#modalOrigin').text(data['Место_рождения_полное'] || '—');
+
+    // Работа
+    $('#modalSpecialty').text(data['Специальность'] || '—');
+    $('#modalWorkGeo').text(data['Работа_география_полная'] || '—');
+    $('#modalWorkPlace').text(data['Место_работы'] || '—');
+    $('#modalJob').text(data['Должность'] || '—');
+
+    // Место назначения
+    $('#modalDestination').text(data['Куда_определен'] || '—');
+
+    // Семья
+    $('#modalFamily').html(data['Семья_ссылки'] || "Нет данных"); 
+    $('#modalRelation').text(data['Отношение_к_главе'] || '—');
+
+    $('#shareBtn').attr('data-id', data['id']); 
+    $('#personModal').fadeIn(300);
+    window.location.hash = 'id=' + data['id'];
+}
 
         // Клик по строке
         $('#passengersTable tbody').on('click', 'tr', function () {
