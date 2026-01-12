@@ -153,54 +153,48 @@
     </footer>
 
   <div id="personModal" class="modal">
-    <div class="modal-content archive-card">
+    <div class="modal-content archive-card-horizontal">
         <div class="card-tab"><span id="modalTabId">№ 000</span></div>
         <span class="close-modal">&times;</span>
         
         <div class="card-header">
             <small>Личное дело пассажира эшелона №747</small>
             <h2 id="modalFullName">Фамилия Имя Отчество</h2>
-            <div id="modalVariantsWrap" style="font-size: 0.9em; opacity: 0.8;">
-                Варианты: <span id="modalVariants"></span>
-            </div>
+            <div id="modalVariantsWrap">Варианты: <span id="modalVariants"></span></div>
         </div>
 
-        <div class="card-body">
-            <div class="card-section">
+        <div class="card-body-grid">
+            <div class="card-col">
+                <h4>Личные данные</h4>
                 <div class="info-row"><strong>Год рождения:</strong> <span id="modalBirth"></span></div>
                 <div class="info-row"><strong>Пол:</strong> <span id="modalGender"></span></div>
                 <div class="info-row"><strong>Национальность:</strong> <span id="modalNation"></span></div>
                 <div class="info-row"><strong>Место рождения:</strong> <span id="modalOrigin"></span></div>
-            </div>
-            
-            <hr>
-            
-            <div class="card-section">
-                <h4>Сведения о работе до депортации</h4>
-                <div class="info-row"><strong>Специальность:</strong> <span id="modalSpecialty"></span></div>
-                <div class="info-row"><strong>Где работал (география):</strong> <span id="modalWorkGeo"></span></div>
-                <div class="info-row"><strong>Предприятие/Учёба:</strong> <span id="modalWorkPlace"></span></div>
-                <div class="info-row"><strong>Должность:</strong> <span id="modalJob"></span></div>
-            </div>
-
-            <hr>
-
-            <div class="card-section">
+                
+                <hr>
+                
                 <h4>Размещение в Сибири</h4>
                 <div class="info-row"><strong>Место назначения:</strong> <span id="modalDestination"></span></div>
             </div>
 
-            <hr>
-
-            <div class="card-section">
-                <div class="info-row"><strong>Семья (в эшелоне):</strong> <span id="modalFamily"></span></div>
-                <div class="info-row"><strong>Отношение к главе семьи:</strong> <span id="modalRelation"></span></div>
+            <div class="card-col">
+                <h4>Сведения о работе</h4>
+                <div class="info-row"><strong>Специальность:</strong> <span id="modalSpecialty"></span></div>
+                <div class="info-row"><strong>География работы:</strong> <span id="modalWorkGeo"></span></div>
+                <div class="info-row"><strong>Предприятие:</strong> <span id="modalWorkPlace"></span></div>
+                <div class="info-row"><strong>Должность:</strong> <span id="modalJob"></span></div>
+                
+                <hr>
+                
+                <h4>Связи</h4>
+                <div class="info-row"><strong>Семья:</strong> <span id="modalFamily"></span></div>
+                <div class="info-row"><strong>Статус:</strong> <span id="modalRelation"></span></div>
             </div>
+        </div>
 
-            <div class="card-footer">
-                <button id="shareBtn" class="btn-share">🔗 Поделиться карточкой</button>
-                <span id="shareStatus" style="display:none;">Ссылка скопирована!</span>
-            </div>
+        <div class="card-footer-clean">
+            <button id="shareBtn" class="btn-share">🔗 Поделиться</button>
+            <span id="shareStatus" style="display:none;">Ссылка скопирована!</span>
         </div>
     </div>
 </div>
