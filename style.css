@@ -240,7 +240,7 @@ footer {
     opacity: 0.7;
     width: 100%;
 }
-/* 11. Блок поддержки (Две кнопки) */
+/* 11. Блок поддержки (Две одинаковые кнопки) */
 .support-block {
     background-color: #fcfaf2;
     border-top: 1px solid #dcdcdc;
@@ -262,13 +262,14 @@ footer {
     margin-top: 30px;
 }
 
+/* Единый стиль для обеих кнопок */
 .btn-support {
     flex: 1;
     max-width: 300px;
     display: inline-block;
     padding: 15px 20px;
-    background-color: #374520; /* Оливковая заливка для обеих */
-    color: #fdfaf6;
+    background-color: #374520; /* Оливковая заливка */
+    color: #fdfaf6 !important; /* Цвет текста (бежевый) */
     border: 1px solid #374520;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
@@ -280,23 +281,10 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Кнопка Buy Me a Coffee */
-.btn-bmc {
-    background-color: #374520;
-    color: #fdfaf6;
-    border: 1px solid #374520;
-}
-
-/* Кнопка Boosty (сделаем её чуть светлее или с рамкой для отличия) */
-.btn-boosty {
-    background-color: transparent;
-    color: #374520;
-    border: 1px solid #374520;
-}
-
+/* Общий эффект при наведении для обеих кнопок */
 .btn-support:hover {
-    background-color: #4a5d2b;
-    color: #fff;
+    background-color: #4a5d2b; /* Чуть светлее */
+    color: #fff !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(55, 69, 32, 0.2);
 }
