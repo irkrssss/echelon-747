@@ -102,7 +102,23 @@ h2 { color: #374520; border-bottom: 1px solid #eee; padding-bottom: 10px; margin
 #passengersTable { width: 100% !important; border-collapse: collapse; }
 #passengersTable thead th { background: #374520; color: #fff; padding: 12px; font-size: 0.85em; text-align: left; }
 #passengersTable tbody tr:hover { background: #f2ede0 !important; box-shadow: inset 4px 0 0 #374520; }
+/* Возвращаем эффект наведения на строки таблицы */
+#passengersTable tbody tr {
+    cursor: pointer !important; /* Появляется "рука" */
+    transition: all 0.2s ease;
+}
 
+#passengersTable tbody tr:hover {
+    /* Фон становится песочным */
+    background-color: #f2ede0 !important; 
+    /* Появляется оливковая полоска слева */
+    box-shadow: inset 4px 0 0 #374520 !important; 
+}
+
+/* Эффект при клике (опционально) */
+#passengersTable tbody tr:active {
+    background-color: #e9e2cf !important;
+}
 .download-container {
     margin-top: 30px;
     padding: 20px;
