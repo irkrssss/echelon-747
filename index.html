@@ -178,6 +178,7 @@
                 <h2 id="modalName">Фамилия Имя</h2>
             </div>
             <div class="card-body">
+                <div class="info-row"><strong>Варианты фамилии:</strong> <span id="modalVariants"></span></div>
                 <div class="info-row"><strong>Год рождения:</strong> <span id="modalBirth"></span></div>
                 <div class="info-row"><strong>Место рождения:</strong> <span id="modalOrigin"></span></div>
                 <hr>
@@ -212,35 +213,40 @@
         initComplete: function() {
             checkUrlHash(this.api());
         }
+        // Чтобы карточка обновлялась при клике на родственника внутри неё
+$(window).on('hashchange', function() {
+    var table = $('#passengersTable').DataTable();
+    checkUrlHash(table);
+});
     });
 
     // Функция открытия карточки
-    function openCard(data) {
-        // Подставляем номер в язычок
+   function openCard(data) {
+    // Подставляем номер в язычок
     $('#modalTabId').text('№ ' + (data['id'] || '000')); 
-        $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
-        $('#modalBirth').text(data['Год рождения'] || '—');
-        $('#modalOrigin').text(data['Место рожд\\. город, село'] || '—');
-        $('#modalJob').text(data['Профессия'] || "Нет данных");
-        $('#modalWork').text(data['Место работы'] || "Нет данных");
-        $('#modalFamily').text(data['Семья'] || "Нет данных");
-        $('#modalNote').text(data['Примечание'] || "—");
-        
-        // Сохраняем ID в кнопку поделиться
-        $('#shareBtn').attr('data-id', data['id']); 
-        $('#personModal').fadeIn(300);
-    }
-
-    // Клик по строке
-    $('#passengersTable tbody').on('click', 'tr', function () {
-        var data = table.row(this).data();
-        openCard(data);
-    });
-
-    // Логика кнопки "Поделиться"
-    $('#shareBtn').on('click', function() {
-        var personId = $(this).attr('data-id');
-        var shareUrl = window.location.origin + window.location.pathname + '#id=' + personId;
+    
+    // ФИО
+    $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
+    
+    // Новое поле: Варианты фамилии
+    $('#modalVariants').text(data['Варианты фамилии'] || '—');
+    
+    // Остальные поля
+    $('#modalBirth').text(data['Год рождения'] || '—');
+    $('#modalOrigin').text(data['Место рожд. город, село'] || '—');
+    $('#modalJob').text(data['Профессия'] || "Нет данных");
+    $('#modalWork').text(data['Место работы'] || "Нет данных");
+    
+    // ВАЖНО: для Семьи используем .html(), так как там теперь ссылки!
+    $('#modalFamily').html(data['Семья'] || "Нет данных"); 
+    
+    // Примечание (сюда теперь попадает Совхоз)
+    $('#modalNote').text(data['Примечание'] || "—");
+    
+    // ID для кнопки поделиться
+    $('#shareBtn').attr('data-id', data['id']); 
+    $('#personModal').fadeIn(300);
+}
         
         // Копируем в буфер обмена
         navigator.clipboard.writeText(shareUrl).then(function() {
