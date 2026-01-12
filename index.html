@@ -156,9 +156,12 @@
 
 
 
-    <div id="personModal" class="modal">
-        <div class="modal-content archive-card">
-            <span class="close-modal">&times;</span>
+ <div id="personModal" class="modal">
+    <div class="modal-content archive-card">
+        <div class="card-tab">
+            <span id="modalTabId">№ 000</span>
+        </div>
+        <span class="close-modal">&times;</span>
             <div class="card-header">
                 <small>Архивная карточка №747</small>
                 <h2 id="modalName">Фамилия Имя</h2>
@@ -202,6 +205,8 @@
 
     // Функция открытия карточки
     function openCard(data) {
+        // Подставляем номер в язычок
+    $('#modalTabId').text('№ ' + (data['id'] || '000')); 
         $('#modalName').text(data['Фамилия'] + ' ' + (data['Имя'] || ''));
         $('#modalBirth').text(data['Год рождения'] || '—');
         $('#modalOrigin').text(data['Место рожд\\. город, село'] || '—');
