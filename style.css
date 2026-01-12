@@ -419,32 +419,27 @@ footer {
         max-width: 100%;
     }
 }
-/* Ссылки на членов семьи внутри карточки */
+/* --- Ссылки на членов семьи внутри карточки --- */
+
+#modalFamily {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1.8; /* Расстояние между именами в столбике */
+    margin-top: 5px;  /* Небольшой отступ сверху от заголовка "Семья" */
+}
+
 .family-link {
     color: #374520;
     text-decoration: underline;
     text-decoration-style: dotted;
     font-weight: bold;
+    font-size: 0.95em; /* Компактный размер */
     transition: all 0.2s;
 }
 
 .family-link:hover {
     color: #4a5d2b;
     text-decoration-style: solid;
-    background: rgba(55, 69, 32, 0.05);
-    border-radius: 2px;
-}/* Ссылки на членов семьи внутри карточки */
-.family-link {
-    color: #374520;
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    font-weight: bold;
-    transition: all 0.2s;
-}
-
-.family-link:hover {
-    color: #4a5d2b;
-    text-decoration-style: solid;
-    background: rgba(55, 69, 32, 0.05);
+    background: rgba(55, 69, 32, 0.05); /* Легкая подсветка при наведении */
     border-radius: 2px;
 }
