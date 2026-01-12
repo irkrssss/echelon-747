@@ -316,3 +316,32 @@ footer {
         max-width: 100%;
     }
 }
+/* Ссылки на членов семьи внутри карточки */
+.family-link {
+    color: #374520;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.family-link:hover {
+    color: #4a5d2b;
+    text-decoration-style: solid;
+    background: rgba(55, 69, 32, 0.05);
+    border-radius: 2px;
+}/* Ссылки на членов семьи внутри карточки */
+.family-link {
+    color: #374520;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.family-link:hover {
+    color: #4a5d2b;
+    text-decoration-style: solid;
+    background: rgba(55, 69, 32, 0.05);
+    border-radius: 2px;
+}
