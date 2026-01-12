@@ -443,21 +443,3 @@ footer {
     background: rgba(55, 69, 32, 0.05); /* Легкая подсветка при наведении */
     border-radius: 2px;
 }
-.main-site-link {
-    margin: 15px 0;
-}
-
-.main-site-link a {
-    color: #fdfaf6; /* Светлый цвет, как у остального текста в футере */
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 1px dashed #374520;
-    padding-bottom: 2px;
-    transition: all 0.3s ease;
-}
-
-.main-site-link a:hover {
-    color: #4a5d2b; /* Оливковый при наведении */
-    border-bottom-style: solid;
-    background: rgba(255, 255, 255, 0.05);
-}
