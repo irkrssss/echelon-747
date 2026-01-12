@@ -1,6 +1,7 @@
 /* 1. Общие настройки страницы */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 60px; /* Чтобы меню не перекрывало заголовки при скролле */
 }
 
 body {
@@ -21,7 +22,7 @@ h1, h2, h3 {
 /* 2. Заголовок сайта (Шапка) */
 header {
     position: relative;
-    background-color: #1a1c17; /* Цвет-заглушка */
+    background-color: #1a1c17; 
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                       url('https://github.com/irkrssss/echelon-747/blob/main/header.jpg?raw=true'); 
     background-size: cover;
@@ -67,374 +68,17 @@ header p {
     transition: opacity 0.3s;
 }
 
-.lang-switch a:hover {
+.lang-switch a:hover, .lang-switch b {
     opacity: 1;
+    text-decoration: underline;
 }
 
-/* 3. Контейнеры для контента */
-.container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 40px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-}
-
-section {
-    margin-bottom: 60px;
-}
-
-h2 {
-    color: #374520;
-    border-bottom: 1px solid #dcdcdc;
-    padding-bottom: 10px;
-    font-variant: small-caps;
-    font-size: 1.8em;
-}
-
-/* 4. Блок статистики */
-#stats {
-    margin: 40px 0;
-    padding: 30px 0;
-    border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
-}
-
-.stats-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-}
-
-.stat-number {
-    display: block;
-    font-family: 'Lora', serif;
-    font-size: 3.5em;
-    color: #374520;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 10px;
-}
-
-.stat-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #666;
-}
-
-/* 5. Стили таблицы и поиска */
-#passengersTable_wrapper {
-    margin-top: 30px;
-}
-
-#passengersTable {
-    font-size: 0.95em;
-    width: 100% !important;
-    border-collapse: collapse;
-}
-
-#passengersTable thead th {
-    background-color: #374520;
-    color: #fdfaf6;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 1px;
-    padding: 15px;
-}
-
-#passengersTable tbody td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-}
-
-#passengersTable tbody tr:hover {
-    background-color: #fcfaf2 !important;
-}
-
-.dataTables_filter input {
-    border: 1px solid #374520 !important;
-    border-radius: 20px !important;
-    padding: 8px 15px !important;
-    outline: none;
-    margin-bottom: 15px;
-}
-/* Улучшенная стилизация строк таблицы */
-#passengersTable tbody tr {
-    cursor: pointer; /* МЕНЯЕМ КУРСОР: теперь при наведении появится "рука" */
-    transition: all 0.2s ease; /* Плавность эффектов */
-}
-
-/* Эффект при наведении на строку */
-#passengersTable tbody tr:hover {
-    /* 1. Делаем фон чуть более заметным (песочным) */
-    background-color: #f2ede0 !important; 
-    
-    /* 2. Добавляем тонкую оливковую полоску слева. 
-       Это выглядит очень стильно и сразу выделяет строку. */
-    box-shadow: inset 4px 0 0 #374520; 
-}
-
-/* Опционально: эффект при нажатии (клик) */
-#passengersTable tbody tr:active {
-    background-color: #e9e2cf !important;
-}
-/* 6. Блок скачивания данных (ТОТ САМЫЙ БЛОК) */
-.download-container {
-    margin-top: 25px;
-    padding: 20px;
-    background-color: #fcfaf2;
-    border: 1px dashed #374520;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.download-container span {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9em;
-    font-weight: 700;
-    color: #374520;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-download {
-    display: inline-block;
-    padding: 8px 18px;
-    background-color: transparent;
-    color: #374520;
-    border: 1px solid #374520;
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85em;
-    font-weight: 700;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.btn-download:hover {
-    background-color: #374520;
-    color: #fdfaf6;
-    box-shadow: 0 2px 8px rgba(55, 69, 32, 0.2);
-}
-
-/* 7. Методология */
-.method-grid {
-    display: flex;
-    gap: 30px;
-}
-
-.method-item {
-    flex: 1;
-    background: #fdfaf6;
-    padding: 25px;
-    border-radius: 4px;
-    border-left: 4px solid #374520;
-}
-
-.method-item h3 {
-    margin-top: 0;
-    color: #374520;
-}
-
-/* 8. Карта */
-.iframe-container {
-    position: relative;
-    padding-top: 56.25%;
-    background: #eee;
-    border: 1px solid #ccc;
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%; border: 0;
-}
-
-/* 9. Футер */
-footer {
-    background-color: #2c2c2c;
-    color: #fdfaf6;
-    padding: 60px 0 20px 0;
-    margin-top: 80px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    background: transparent !important;
-}
-
-.author-info, .contact-links { flex: 1; }
-
-.contact-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #374520;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    font-size: 0.8em;
-    opacity: 0.6;
-}
-
-/* 10. Адаптивность */
-@media (max-width: 768px) {
-    header h1 { font-size: 2.5em; }
-    .stats-grid, .method-grid, .footer-content, .download-container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-}
-/* =========================================
-   Стили для модального окна (Архивная карточка)
-   ========================================= */
-
-/* Затемненный фон за карточкой */
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(30, 33, 25, 0.85); /* Чуть более темный и "оливковый" фон */
-    backdrop-filter: blur(3px); /* Легкое размытие заднего плана */
-}
-
-/* Сама карточка */
-.archive-card {
-    /* 1. Основа "старой бумаги" */
-    background-color: #f4e8d1; /* Более желтый/сепневый оттенок, чем основной сайт */
-    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
-    /* Добавляем второй слой текстуры (легкий шум) для реализма */
-    background-image: 
-        url('https://www.transparenttextures.com/patterns/natural-paper.png'),
-        linear-gradient(to bottom right, rgba(55, 69, 32, 0.05), rgba(0,0,0,0.1));
-
-    /* 2. Эффект старых краев и глубины */
-    border: 1px solid #c7b299; /* Коричневатая рамка вместо серой */
-    border-radius: 3px; /* Углы лишь слегка скруглены, как у реального картона */
-    /* Комбинация теней:
-       - Первая тень (inset): внутренняя, создает эффект затемненных/грязных краев бумаги.
-       - Вторая тень: внешняя, глубокая, заставляет карточку "парить" над фоном.
-    */
-    box-shadow: 
-        inset 0 0 50px rgba(55, 69, 32, 0.15), /* Эффект старых краев */
-        0 20px 40px rgba(0,0,0,0.4); /* Глубокая внешняя тень */
-
-    /* Позиционирование */
-    margin: 5% auto;
-    padding: 40px;
-    width: 90%;
-    max-width: 550px; /* Чуть шире для солидности */
-    position: relative;
-}
-
-/* Шапка карточки */
-.card-header {
-    border-bottom: 2px solid #374520;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-}
-
-.card-header small {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #666;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75em;
-}
-
-.card-header h2 {
-    margin: 10px 0 0 0;
-    border: none;
-    color: #374520;
-    font-size: 2.2em;
-    line-height: 1.1;
-}
-
-/* Содержимое карточки */
-.info-row {
-    margin-bottom: 18px;
-    font-size: 1.15em;
-    display: flex; /* Выравниваем метку и значение */
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px dotted rgba(55, 69, 32, 0.2); /* Линия как в бланке */
-    padding-bottom: 5px;
-}
-
-.info-row strong {
-    color: #374520;
-    text-transform: uppercase;
-    font-size: 0.75em;
-    letter-spacing: 1px;
-    flex-basis: 40%; /* Метка занимает 40% ширины */
-    opacity: 0.8;
-}
-
-.info-row span {
-    flex-basis: 60%;
-    text-align: right;
-    font-weight: 600;
-}
-
-/* Разделительная линия внутри карточки */
-.archive-card hr {
-    border: none;
-    border-top: 2px dashed #374520; /* Пунктирная линия, как перфорация */
-    opacity: 0.2;
-    margin: 25px 0;
-}
-
-/* Кнопка закрытия (крестик) */
-.close-modal {
-    position: absolute;
-    right: 25px; top: 15px;
-    font-size: 32px;
-    cursor: pointer;
-    color: #8a7f70; /* Цвет старой бронзы */
-    transition: color 0.3s;
-}
-
-.close-modal:hover { color: #374520; }
-
-/* Адаптивность карточки для телефонов */
-@media (max-width: 768px) {
-    .archive-card {
-        padding: 25px;
-        margin: 15% auto; /* Чуть ниже на мобилках */
-    }
-    .info-row {
-        flex-direction: column; /* На телефоне метка над значением */
-        align-items: flex-start;
-        gap: 5px;
-    }
-    .info-row span {
-        text-align: left;
-    }
-}
-/* 11. Навигационное меню */
+/* 3. Навигационное меню */
 .main-nav {
-    background-color: #374520; /* Наш оливковый */
+    background-color: #374520;
     position: sticky;
     top: 0;
-    z-index: 900; /* Меню должно быть ниже модального окна, но выше контента */
+    z-index: 900;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
@@ -451,16 +95,12 @@ footer {
     justify-content: center;
 }
 
-.main-nav li {
-    margin: 0;
-}
-
 .main-nav a {
     display: block;
     padding: 15px 25px;
     color: #fdfaf6;
     text-decoration: none;
-    font-family: 'Lora', serif; /* Используем наш заголовочный шрифт */
+    font-family: 'Lora', serif;
     font-size: 0.95em;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -468,27 +108,125 @@ footer {
 }
 
 .main-nav a:hover {
-    background-color: #4a5d2b; /* Чуть светлее при наведении */
+    background-color: #4a5d2b;
 }
 
-/* Фикс для отступа: чтобы при клике заголовок не прятался под меню */
-html {
-    scroll-padding-top: 60px; /* Высота меню */
+/* 4. Контейнеры */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 }
 
-/* Адаптивность меню для мобильных */
-@media (max-width: 768px) {
-    .main-nav a {
-        padding: 12px 10px;
-        font-size: 0.75em;
-        letter-spacing: 0;
-    }
+h2 {
+    color: #374520;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 10px;
+    font-variant: small-caps;
+    font-size: 1.8em;
 }
-.card-footer {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px dashed rgba(55, 69, 32, 0.2);
+
+/* 5. Блок статистики */
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
+    gap: 20px;
+    padding: 30px 0;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 3.5em;
+    color: #374520;
+    font-weight: 700;
+}
+
+/* 6. Таблица */
+#passengersTable {
+    font-size: 0.95em;
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#passengersTable thead th {
+    background-color: #374520;
+    color: #fdfaf6;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    padding: 15px;
+}
+
+#passengersTable tbody tr {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#passengersTable tbody tr:hover {
+    background-color: #f2ede0 !important;
+    box-shadow: inset 4px 0 0 #374520;
+}
+
+/* 7. Модальное окно (Архивная карточка) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(30, 33, 25, 0.85);
+    backdrop-filter: blur(3px);
+}
+
+.archive-card {
+    background-color: #f4e8d1;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png'),
+                      linear-gradient(to bottom right, rgba(55, 69, 32, 0.05), rgba(0,0,0,0.1));
+    border: 1px solid #c7b299;
+    box-shadow: inset 0 0 50px rgba(55, 69, 32, 0.15), 0 20px 40px rgba(0,0,0,0.4);
+    margin: 10% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+}
+
+/* Язычок папки */
+.card-tab {
+    position: absolute;
+    top: -35px;
+    left: 20px;
+    height: 35px;
+    padding: 0 20px;
+    background-color: #f4e8d1;
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+    border: 1px solid #c7b299;
+    border-bottom: none;
+    border-radius: 8px 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.card-tab span {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #374520;
+}
+
+/* Содержимое карточки */
+.info-row {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted rgba(55, 69, 32, 0.2);
 }
 
 .btn-share {
@@ -496,50 +234,20 @@ html {
     border: 1px solid #374520;
     color: #374520;
     padding: 8px 15px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8em;
     text-transform: uppercase;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s;
+    margin-top: 15px;
 }
 
 .btn-share:hover {
     background: #374520;
     color: #fdfaf6;
 }
-<div class="card-footer">
-    <button id="shareBtn" class="btn-share">🔗 Поделиться карточкой</button>
-    <span id="shareStatus" style="display:none; font-size:0.8em; color:#374520; margin-left:10px;">Ссылка скопирована!</span>
-</div>
-/* Язычок архивной папки */
-.card-tab {
-    position: absolute;
-    top: -35px; /* Выносим за пределы карточки вверх */
-    left: 20px;
-    height: 35px;
-    padding: 0 20px;
-    background-color: #f4e8d1; /* Тот же цвет, что у карточки */
-    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
-    border: 1px solid #c7b299;
-    border-bottom: none; /* Убираем границу снизу, чтобы он сливался с карточкой */
-    border-radius: 8px 15px 0 0; /* Скругляем только верхние углы */
-    box-shadow: inset 0 5px 10px rgba(55, 69, 32, 0.05); /* Легкая тень сверху */
-    display: flex;
-    align-items: center;
-    z-index: 1;
-}
 
-.card-tab span {
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    font-size: 0.8em;
-    color: #374520;
-    letter-spacing: 1px;
-}
-
-/* Корректировка основной карточки, чтобы таб не "отвалился" */
-.archive-card {
-    position: relative; /* Чтобы таб позиционировался относительно нее */
-    margin-top: 10% !important; /* Даем больше места сверху для таба */
+/* 8. Адаптивность */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5em; }
+    .stats-grid, .footer-content { flex-direction: column; }
+    .main-nav a { padding: 10px; font-size: 0.8em; }
+    .info-row { flex-direction: column; }
 }
